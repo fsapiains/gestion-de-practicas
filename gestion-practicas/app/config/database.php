@@ -65,13 +65,14 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'gestionpracticas',
-			'username' => 'postgres',
-			'password' => 'poncho',
+			'host'     => '146.83.181.4',
+			'port'		=> '6432',
+			'database' => 'iswdb',
+			'username' => 'grupo05',
+			'password' => 'd27cfd',
 			'charset'  => 'utf8',
 			'prefix'   => '',
-			'schema'   => 'public',
+			'schema'   => 'grupo05',
 		),
 
 		'sqlsrv' => array(
