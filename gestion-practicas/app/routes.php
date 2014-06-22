@@ -17,5 +17,7 @@ Route::get('/', function()
 });
 
 Route::resource('rubros', 'RubrosController');
+Route::resource('empresas', 'EmpresasController');
+Route::resource('contactos_empresariales', 'ContactosEmpresarialesController');
 
 Route::get('/facultad', 'FacultadController@index');
