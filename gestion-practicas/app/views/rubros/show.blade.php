@@ -1,0 +1,1 @@
+/Users/air/Documents/Proyectos/gestion-de-practicas/gestion-practicas/app/views/rubros/show.blade.php

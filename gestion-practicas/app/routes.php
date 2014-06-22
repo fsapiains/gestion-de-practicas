@@ -16,6 +16,6 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/facultad', 'FacultadController@index');
+Route::resource('rubros', 'RubrosController');
 
-Route::
+Route::get('/facultad', 'FacultadController@index');
