@@ -19,5 +19,11 @@ Route::get('/', function()
 Route::resource('rubros', 'RubrosController');
 Route::resource('empresas', 'EmpresasController');
 Route::resource('contactos_empresariales', 'ContactosEmpresarialesController');
+Route::resource('facultades', 'FacultadesController');
+Route::resource('departamentos', 'DepartamentosController');
+Route::resource('escuelas', 'EscuelasController');
+Route::resource('carreras', 'CarrerasController');
+Route::resource('estudiantes', 'EstudiantesController');
+Route::resource('practicas', 'PracticasController');
 
-Route::get('/facultad', 'FacultadController@index');
+//Route::get('/facultad', 'FacultadController@index');

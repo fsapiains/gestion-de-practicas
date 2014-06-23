@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Crear Rubro</title>
+    <title>Rubro</title>
 </head>
 <body>
 <h1>Ingreso de rubros</h1>
