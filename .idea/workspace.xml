@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40afd2a5-f1c0-491a-8239-582f619bd340" name="Default" comment="" />
+    <list default="true" id="40afd2a5-f1c0-491a-8239-582f619bd340" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gestion-practicas/.gitignore" afterPath="$PROJECT_DIR$/gestion-practicas/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="gestion-de-practicas.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,15 +29,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EstudiantesController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EstudiantesController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/EstudiantesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="29" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.25787964" vertical-offset="825" max-vertical-offset="2535">
+            <state line="75" column="29" selection-start="1884" selection-end="1884" vertical-scroll-proportion="-13.75" vertical-offset="675" max-vertical-offset="2535">
               <folding>
                 <element signature="e#63#133#0" expanded="false" />
                 <element signature="e#270#351#0" expanded="false" />
                 <marker date="1403735188000" expanded="true" signature="2024:2069" placeholder="select pk fr..carreras..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gestion-practicas/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gestion-practicas/app/views/rubros/index.blade.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/RubrosController.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/empresas/create.blade.php" />
@@ -175,6 +186,7 @@
         <option value="$PROJECT_DIR$/gestion-practicas/app/models/Estudiante.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/EstudiantesController.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/vendor/bin/boris" />
+        <option value="$PROJECT_DIR$/gestion-practicas/.gitignore" />
       </list>
     </option>
   </component>
@@ -240,46 +252,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gestion-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gestion-de-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gestion-de-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gestion-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gestion-de-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gestion-de-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gestion-practicas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,13 +366,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/contactos_empresariales/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="559" selection-end="559" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/contactos_empresariales/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="89" selection-start="217" selection-end="217" vertical-scroll-proportion="0.13870542" vertical-offset="0" max-vertical-offset="757">
@@ -748,12 +713,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/EstudiantesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="29" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.25787964" vertical-offset="825" max-vertical-offset="2535">
+        <state line="75" column="29" selection-start="1884" selection-end="1884" vertical-scroll-proportion="-13.75" vertical-offset="675" max-vertical-offset="2535">
           <folding>
             <element signature="e#63#133#0" expanded="false" />
             <element signature="e#270#351#0" expanded="false" />
             <marker date="1403735188000" expanded="true" signature="2024:2069" placeholder="select pk fr..carreras..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gestion-practicas/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <folding />
         </state>
       </provider>
     </entry>
