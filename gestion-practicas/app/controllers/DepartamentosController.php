@@ -35,9 +35,11 @@ class DepartamentosController extends \BaseController {
 	 * Store a newly created departamento in storage.
 	 *
 	 * @return Response
+     *
 	 */
 	public function store()
 	{
+        /*
 		$validator = Validator::make($data = Input::only('facultad_fk','nombre','descripcion'), Departamento::$rules);
 
 		if ($validator->fails())
@@ -48,6 +50,26 @@ class DepartamentosController extends \BaseController {
 		Departamento::create($data);
 
 		return Redirect::route('departamentos.index');
+        */
+        $rut = Input::get('rut');
+
+        $url = "https://146.83.181.139/saap-rest/api/departamentos";
+
+        $opciones = array(
+            'http' => array(
+                'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
+            )
+        );
+        $contexto = stream_context_create($opciones);
+
+        $objeto = json_decode(file_get_contents($url, false, $contexto));
+
+        var_dump($objeto[3]->departamento);
+
+      /*  $Faculta = new Facultade();
+        $Faculta->nombre = $objeto->nombre;
+        $Faculta->descripcion= $objeto->descripcion;
+        $Faculta->save();*/
 	}
 
 	/**

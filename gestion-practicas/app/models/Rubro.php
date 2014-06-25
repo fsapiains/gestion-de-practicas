@@ -2,6 +2,10 @@
 
 class Rubro extends \Eloquent {
 
+    public function empresas(){
+        return $this->hasMany('Empresa');
+    }
+
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here

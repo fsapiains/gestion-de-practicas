@@ -31,6 +31,7 @@ class FacultadesController extends \BaseController {
 	 */
 	public function store()
 	{
+        /*
 		$validator = Validator::make($data = Input::only('nombre' , 'descripcion'), Facultade::$rules);
 
 		if ($validator->fails())
@@ -41,6 +42,11 @@ class FacultadesController extends \BaseController {
 		Facultade::create($data);
 
 		return Redirect::route('facultades.index');
+        */
+
+        $facultad=Input::get('Nombre');
+
+
 	}
 
 	/**

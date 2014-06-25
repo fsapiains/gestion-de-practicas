@@ -21,15 +21,17 @@ class EstudiantesController extends \BaseController {
 	 */
 	public function create()
 	{
-        $carreras = Carrera::all();
+       /* $carreras = Carrera::all();
         $carreras_select = array();
         foreach($carreras as $carrera) {
             $carreras_select[$carrera->pk] = $carrera->nombre;
         }
 
-        return View::make('estudiantes.create')
-            ->with('carreras', $carreras_select);
+      */  return View::make('estudiantes.create');
+         //   ->with('carreras', $carreras_select);
 	}
+
+
 
 	/**
 	 * Store a newly created estudiante in storage.
@@ -38,7 +40,60 @@ class EstudiantesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::only('rut','nombres','apellidos','fecha_nacimiento','genero','direccion','telefono','email','estado','carrera_fk'), Estudiante::$rules);
+        $rut = Input::get('rut');
+
+        $url = "https://146.83.181.139/saap-rest/api/fichaEstudiante/$rut";
+
+        $opciones = array(
+            'http' => array(
+                'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
+            )
+        );
+        $contexto = stream_context_create($opciones);
+
+        $objeto = json_decode(file_get_contents($url, false, $contexto));
+
+        //$data=array($objeto->nombres,$objeto->apellidos,$objeto->fechaNacimiento,$objeto->genero,$objeto->email,$objeto->estado,$objeto->codigoCarrera);
+
+
+
+
+
+// SELECT 'pk' from Carreras where codigo='cod_carrera'
+        $n=new Estudiante;
+        //buscar codigo carrera en objeto rest
+        $codigo=$objeto->codigoCarrera;
+
+        $n->nombres=$objeto->nombres;
+        $n->apellidos=$objeto->apellidos;
+        $n->fecha_nacimiento=$objeto->fechaNacimiento;
+        if($gen=$objeto->genero=='M')$n->genero=1;
+        else $n->genero=0;
+
+        $n->email=$objeto->email;
+        $n->estado=$objeto->estado;
+
+        $carrera = DB::table('carreras')->where('codigo', '=', '21041')->get(array('pk'));
+        $codigocarrera = ($carrera->pk);
+
+       // $codigocarrera=DB::query('select pk from carreras where  codigo=$codigo');
+       // $n->$carrera_fk->$codigocarrera;
+        var_dump($codigocarrera);
+
+        $n->direccion=Input::get('direccion');
+        $n->rut=substr(Input::get('rut'),0,-2);
+
+        $n->telefono=Input::get('telefono');
+        $n->save();
+
+
+       // $datos = Input::only('rut','nombres','apellidos','fecha_nacimiento','genero','direccion','telefono','email','estado','carrera_fk');
+
+      //  Estudiante::create($datos);
+
+        return Redirect::route('estudiantes.index');
+
+		/*$validator = Validator::make($data = Input::only('rut','nombres','apellidos','fecha_nacimiento','genero','direccion','telefono','email','estado','carrera_fk'), Estudiante::$rules);
 
 		if ($validator->fails())
 		{
@@ -47,7 +102,7 @@ class EstudiantesController extends \BaseController {
 
 		Estudiante::create($data);
 
-		return Redirect::route('estudiantes.index');
+		return Redirect::route('estudiantes.index'); */
 	}
 
 	/**
@@ -110,5 +165,7 @@ class EstudiantesController extends \BaseController {
 
 		return Redirect::route('estudiantes.index');
 	}
+
+
 
 }

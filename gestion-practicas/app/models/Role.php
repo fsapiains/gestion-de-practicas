@@ -1,10 +1,6 @@
 <?php
 
-class Facultade extends \Eloquent {
-
-    public function departamentos(){
-        return $this->hasMany('Departamento');
-    }
+class Role extends \Eloquent {
 
     protected $primaryKey = 'pk';
 
@@ -14,7 +10,7 @@ class Facultade extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['nombre', 'descripcion'];
+	protected $fillable = ['rol','descripcion'];
 
     public $timestamps = false;
 

@@ -2,6 +2,11 @@
 
 class Estudiante extends \Eloquent {
 
+    public function carreras(){
+        return $this->belongsTo('Carrera');
+
+    }
+
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here

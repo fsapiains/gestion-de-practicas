@@ -25,5 +25,7 @@ Route::resource('escuelas', 'EscuelasController');
 Route::resource('carreras', 'CarrerasController');
 Route::resource('estudiantes', 'EstudiantesController');
 Route::resource('practicas', 'PracticasController');
-
+Route::get('/login', array('uses' => 'UserController@formulario_login', 'as' => 'user.formulario_login'));
+Route::post('/login', array('uses' => 'UserController@hacer_login', 'as' => 'user.hacer_login'));
+Route::resource('roles', 'RolesController');
 //Route::get('/facultad', 'FacultadController@index');

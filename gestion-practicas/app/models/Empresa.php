@@ -2,6 +2,14 @@
 
 class Empresa extends \Eloquent {
 
+    public function contactos(){
+        return $this->hasMany('Contactosempresariale');
+    }
+
+    public function rubros(){
+        return $this->belongsTo('Rubro');
+    }
+
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here

@@ -2,6 +2,18 @@
 
 class Carrera extends \Eloquent {
 
+    public function estudiantes(){
+        return $this->hasMany('Estudiante','pk');
+    }
+
+    public function escuelas(){
+        return $this->belongsTo('Escuela');
+    }
+
+    public function practicas(){
+        return $this->hasMany('Practica');
+    }
+
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here
