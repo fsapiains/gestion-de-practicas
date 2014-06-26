@@ -31,6 +31,31 @@ class FacultadesController extends \BaseController {
 	 */
 	public function store()
 	{
+        $url = "https://146.83.181.139/saap-rest/api/departamentos";
+
+        $opciones = array(
+            'http' => array(
+                'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
+            )
+        );
+        $contexto = stream_context_create($opciones);
+
+        $objeto = json_decode(file_get_contents($url, false, $contexto));
+
+       //var_dump($objeto);
+       // var_dump($objeto[0]->facultad->id);
+       // var_dump($facul->facultad);
+
+
+
+      //  var_dump($objeto[0]->descripcion);
+
+
+        $facultades = new Facultade();
+        $facultades->nombre = $objeto[16]->facultad->facultad;
+        $facultades->descripcion= $objeto[16]->facultad->descripcion;
+        $facultades->pk=$objeto[16]->facultad->id;
+        $facultades->save();
         /*
 		$validator = Validator::make($data = Input::only('nombre' , 'descripcion'), Facultade::$rules);
 
@@ -42,10 +67,10 @@ class FacultadesController extends \BaseController {
 		Facultade::create($data);
 
 		return Redirect::route('facultades.index');
-        */
+
 
         $facultad=Input::get('Nombre');
-
+*/
 
 	}
 

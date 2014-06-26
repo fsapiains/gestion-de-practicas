@@ -26,6 +26,11 @@ class CarrerasController extends \BaseController {
         foreach($escuelas as $escuela) {
             $escuelas_select[$escuela->pk] = $escuela->nombre;
         }
+     /*   $escuelaspk=Escuela::all();
+        $escuelaspk_select = array();
+        foreach($escuelaspk as $escuela) {
+            $escuelaspk_select[$escuela->pk] = $escuela->pk;*/
+
 
         return View::make('carreras.create')
             ->with('escuelas', $escuelas_select);

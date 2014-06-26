@@ -2,6 +2,14 @@
 
 class Departamento extends \Eloquent {
 
+    public function escuelas(){
+        return $this->hasMany('Escuela');
+    }
+
+    public function facultades(){
+        return $this->belongsTo('Facultade');
+    }
+
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here

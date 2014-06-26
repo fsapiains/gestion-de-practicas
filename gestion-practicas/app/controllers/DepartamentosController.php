@@ -64,12 +64,18 @@ class DepartamentosController extends \BaseController {
 
         $objeto = json_decode(file_get_contents($url, false, $contexto));
 
-        var_dump($objeto[3]->departamento);
+      // var_dump($objeto);
+       // var_dump($objeto[0]->descripcion);
 
-      /*  $Faculta = new Facultade();
-        $Faculta->nombre = $objeto->nombre;
-        $Faculta->descripcion= $objeto->descripcion;
-        $Faculta->save();*/
+      for($i=16;$i<21;$i++){
+       $departamento = new Departamento();
+        $departamento->nombre = $objeto[$i]->departamento;
+        $departamento->descripcion= $objeto[$i]->descripcion;
+        $departamento->pk=$objeto[$i]->id;
+        $departamento->facultad_fk='5';
+        $departamento->save();
+      }
+
 	}
 
 	/**

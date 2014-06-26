@@ -5,7 +5,7 @@
 <body>
 <ul>
     @foreach($escuelas as $escuela)
-    <li>{{ $escuela->nombre }} , {{ $escuela->descripcion}} </li>
+    <li>{{ $escuela->nombre }} , {{ $escuela->descripcion}} {{ $escuela->departamento_fk}} </li>
     @endforeach
 
 
