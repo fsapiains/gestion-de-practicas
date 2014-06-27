@@ -16,6 +16,16 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::get('register', function()
+{
+    $empresas = empresa::all();
+    $empresas_select = array();
+    foreach($empresas as $empresa) {
+        $empresas_select[$empresa->pk] = $empresa->nombre_real;
+    }
+    return View::make('contactos_empresariales.create')->with('empresas', $empresas_select,'mensaje','¡Usuario registrado correctamente!.');
+});
+
 Route::resource('rubros', 'RubrosController');
 Route::resource('empresas', 'EmpresasController');
 Route::resource('contactos_empresariales', 'ContactosEmpresarialesController');

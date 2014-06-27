@@ -6,8 +6,15 @@ class ContactosEmpresariale extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+        'email' => 'required|email'
+
 	];
+
+    public static $messages = [
+        'required' => 'El campo :attribute es obligatorio.',
+        'email' => 'El campo :attribute debe ser un email válido.'
+
+    ];
 
 	// Don't forget to fill this array
 	protected $fillable = ['empresa_fk','nombres','apellidos','rut','telefono','email'];

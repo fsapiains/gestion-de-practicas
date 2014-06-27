@@ -89,10 +89,10 @@ class EstudiantesController extends \BaseController {
             }
         }
       //function validatelefono($telefono){
-        $datos = array(Input::get('telefono'));
-        $validaciones = array( 'telefono' => array('required', 'regex:^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$ '));
+       // $datos = array(Input::get('telefono'));
+        // $validaciones = array( 'telefono' => array('required', 'max:8'));//'regex:^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$ '));
 
-        $validator = Validator::make($datos, $validaciones);
+        $validator = Validator::make($datos=Input::only('telefono'), Estudiante::$rules);
 
         if ( $validator->fails() ){
             echo "invalido";

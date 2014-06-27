@@ -11,7 +11,7 @@ class Estudiante extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		'telefono' => 'required','min:8'
+		'telefono' => 'required|min:8|max:8'
 
 	];
 
