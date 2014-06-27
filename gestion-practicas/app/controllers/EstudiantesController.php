@@ -21,14 +21,14 @@ class EstudiantesController extends \BaseController {
 	 */
 	public function create()
 	{
-       /* $carreras = Carrera::all();
+        $carreras = Carrera::all();
         $carreras_select = array();
         foreach($carreras as $carrera) {
             $carreras_select[$carrera->pk] = $carrera->nombre;
         }
 
-      */  return View::make('estudiantes.create');
-         //   ->with('carreras', $carreras_select);
+        return View::make('estudiantes.create')
+            ->with('carreras', $carreras_select);
 	}
 
 
@@ -53,45 +53,91 @@ class EstudiantesController extends \BaseController {
 
         $objeto = json_decode(file_get_contents($url, false, $contexto));
 
+       // var_dump($objeto);
+
         //$data=array($objeto->nombres,$objeto->apellidos,$objeto->fechaNacimiento,$objeto->genero,$objeto->email,$objeto->estado,$objeto->codigoCarrera);
 
 
 
+        function validaRut($rut){
+            if(strpos($rut,"-")==false){
+                $RUT[0] = substr($rut, 0, -1);
+                $RUT[1] = substr($rut, -1);
+            }else{
+                $RUT = explode("-", trim($rut));
+            }
+            $elRut = str_replace(".", "", trim($RUT[0]));
+            $factor = 2;
+            $suma=0;
+            for($i = strlen($elRut)-1; $i >= 0; $i--){
+                $factor = $factor > 7 ? 2 : $factor;
+                $suma+=$elRut{$i}*$factor++;
+            }
+            $resto = $suma % 11;
+            $dv = 11 - $resto;
+            if($dv == 11){
+                $dv=0;
+            }else if($dv == 10){
+                $dv="k";
+            }else{
+                $dv=$dv;
+            }
+            if($dv == trim(strtolower($RUT[1]))){
+                return true;
+            }else{
+                return false;
+            }
+        }
+      /*  function validatelefono($telefono){
+        $datos = array(Input::get('telefono'));
+        $validaciones = array( 'telefono' => array('required', 'regex:^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$ '));
+
+        $validator = Validator::make($datos, $validaciones);
+
+        if ( $validator->fails() ){
+            echo "invalido";
+        }else{
+            echo "valido";
+        }
+        }*/
+       // }
+      // $telefonovalidar=Input::get('telefono');
+      $rutvalidar=Input::get('rut');
+      if(validaRut($rutvalidar)==true){// && validatelefono($telefonovalidar)==true){
+
+          echo "El rut ".$rutvalidar." es valido";
+        // echo "el telefono tambien";
+
+         $estudiante=new Estudiante;
+
+        $estudiante->nombres=$objeto->nombres;
+        $estudiante->apellidos=$objeto->apellidos;
+        $estudiante->fecha_nacimiento=$objeto->fechaNacimiento;
+        if($gen=$objeto->genero=='M')$estudiante->genero=1;
+        else $estudiante->genero=0;
+
+          $estudiante->email=$objeto->email;
+          $estudiante->estado=$objeto->estado;
+
+          $estudiante->direccion=Input::get('direccion');
+          $estudiante->rut=substr(Input::get('rut'),0,-2);
+
+          $estudiante->telefono=Input::get('telefono');
+          $estudiante->carrera_fk=Input::get('carrera_fk');
+          $estudiante->save();
 
 
-// SELECT 'pk' from Carreras where codigo='cod_carrera'
-        $n=new Estudiante;
-        //buscar codigo carrera en objeto rest
-        $codigo=$objeto->codigoCarrera;
+          //  else echo "el telefono es invalido";
 
-        $n->nombres=$objeto->nombres;
-        $n->apellidos=$objeto->apellidos;
-        $n->fecha_nacimiento=$objeto->fechaNacimiento;
-        if($gen=$objeto->genero=='M')$n->genero=1;
-        else $n->genero=0;
-
-        $n->email=$objeto->email;
-        $n->estado=$objeto->estado;
-
-        $carrera = DB::table('carreras')->where('codigo', '=', '21041')->get(array('pk'));
-        $codigocarrera = ($carrera->pk);
-
-       // $codigocarrera=DB::query('select pk from carreras where  codigo=$codigo');
-       // $n->$carrera_fk->$codigocarrera;
-        var_dump($codigocarrera);
-
-        $n->direccion=Input::get('direccion');
-        $n->rut=substr(Input::get('rut'),0,-2);
-
-        $n->telefono=Input::get('telefono');
-        $n->save();
+      }
+          else echo "El rut ".$rutvalidar." no es correcto";
 
 
-       // $datos = Input::only('rut','nombres','apellidos','fecha_nacimiento','genero','direccion','telefono','email','estado','carrera_fk');
+      // $datos = Input::only('direccion','telefono');
 
-      //  Estudiante::create($datos);
+       // Estudiante::create($datos);
 
-        return Redirect::route('estudiantes.index');
+       // return Redirect::route('estudiantes.index');
 
 		/*$validator = Validator::make($data = Input::only('rut','nombres','apellidos','fecha_nacimiento','genero','direccion','telefono','email','estado','carrera_fk'), Estudiante::$rules);
 
@@ -103,7 +149,8 @@ class EstudiantesController extends \BaseController {
 		Estudiante::create($data);
 
 		return Redirect::route('estudiantes.index'); */
-	}
+    }
+
 
 	/**
 	 * Display the specified estudiante.
@@ -165,7 +212,4 @@ class EstudiantesController extends \BaseController {
 
 		return Redirect::route('estudiantes.index');
 	}
-
-
-
 }

@@ -21,27 +21,33 @@ class PracticasController extends \BaseController {
 	 */
 	public function create()
 	{
-        $carreras = Carrera::all();
+       /* $carreras = Carrera::all();
         $carreras_select = array();
         foreach($carreras as $carrera) {
             $carreras_select[$carrera->pk] = $carrera->nombre;
-        }
+        }*/
         $contactosempresariales = ContactosEmpresariale::all();
         $contactos_select = array();
         foreach($contactosempresariales as $contacto) {
             $contactos_select[$contacto->pk] = $contacto->email;
         }
+        $areastematicas = AreasTematica::all();
+        $areastematicas_select = array();
+        foreach($areastematicas as $areas) {
+            $areastematicas_select[$areas->pk] = $areas->tema;
+        }
 
-        $estudiantes = Estudiante::all();
+      /*  $estudiantes = Estudiante::all();
         $estudiantes_select = array();
         foreach($estudiantes as $estudiante) {
             $estudiantes_select[$estudiante->pk] = $estudiante->apellidos;
-        }
+        }*/
 
-        $evaluacion_select=array('aprobado','reprobado');
+        $evaluacion_select=array('ninguno','aprobado','reprobado');
 
 
-        return View::make('practicas.create', compact('carreras_select' ,'estudiantes_select','contactos_select', 'evaluacion_select'));
+
+        return View::make('practicas.create', compact('contactos_select', 'evaluacion_select','areastematicas_select'));
 	}
 
 	/**
@@ -51,7 +57,45 @@ class PracticasController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::only('carrera_fk','contacto_fk','estudiante_fk','fecha','fecha_imicio','fecha_termino','horas','evaluacion','archivo'), Practica::$rules);
+        $rut = substr(Input::get('rut'),0,-1);
+        $estudiantefk = DB::table('estudiantes')->where('rut', '=', $rut )->get(array('pk'));
+      // var_dump($estudiantefk[0]->pk);
+
+       $carrerafk = DB::table('estudiantes')->where('rut', '=', $rut )->get(array('carrera_fk'));
+       $aprobacion=(float)Input::get('evaluacion');
+
+
+      $practica=new Practica();
+        $practica->carrera_fk=$carrerafk[0]->carrera_fk;
+        $practica->contacto_fk=Input::get('contacto_fk');
+        $practica->estudiante_fk=$estudiantefk[0]->pk;
+        $practica->areas_tematica_fk=Input::get('areas_tematica_fk');
+        $practica->fecha=Input::get('fecha');
+        $practica->fecha_inicio=Input::get('fecha_inicio');
+        $practica->fecha_termino=Input::get('fecha_termino');
+        $practica->horas=Input::get('horas');
+        $practica->evaluacion=$aprobacion;
+        $archivo=Input::file('archivo');
+        $destination='public/uploads';
+        $filename=$archivo->getClientOriginalName();
+        $uploadSuccess=$archivo->move($destination,$filename);
+            if ($uploadSuccess){
+                echo "se subio el archivo";
+            }
+            else{ echo"error: el archivo no se cargó correctamente ";
+            }
+
+
+      /*  if ($uploadSuccess){
+            echo "se subio el archivo";
+        }
+        else{ echo"cagamos u.u ";
+        }*/
+
+       // $practica->archivo= Input::file('archivo')->move('uploads');
+
+        $practica->save();
+	/*	$validator = Validator::make($data = Input::only('carrera_fk','contacto_fk','estudiante_fk','fecha','fecha_imicio','fecha_termino','horas','evaluacion','archivo'), Practica::$rules);
 
 		if ($validator->fails())
 		{
@@ -60,7 +104,7 @@ class PracticasController extends \BaseController {
 
 		Practica::create($data);
 
-		return Redirect::route('practicas.index');
+		return Redirect::route('practicas.index');*/
 	}
 
 	/**

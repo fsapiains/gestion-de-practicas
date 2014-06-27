@@ -39,7 +39,41 @@ class ContactosEmpresarialesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::only('empresa_fk','nombres','apellidos','rut','telefono','email'), ContactosEmpresariale::$rules);
+     function validaRut($rut){
+       if(strpos($rut,"-")==false){
+          $RUT[0] = substr($rut, 0, -1);
+          $RUT[1] = substr($rut, -1);
+       }else{
+          $RUT = explode("-", trim($rut));
+       }
+          $elRut = str_replace(".", "", trim($RUT[0]));
+          $factor = 2;
+         $suma=0;
+       for($i = strlen($elRut)-1; $i >= 0; $i--){
+          $factor = $factor > 7 ? 2 : $factor;
+          $suma+=$elRut{$i}*$factor++;
+       }
+          $resto = $suma % 11;
+          $dv = 11 - $resto;
+       if($dv == 11){
+        $dv=0;
+       }else if($dv == 10){
+        $dv="k";
+       }else{
+        $dv=$dv;
+        }
+        if($dv == trim(strtolower($RUT[1]))){
+         return true;
+      }else{
+         return false;
+        }
+      }
+        $rutvalidar=Input::get('rut');
+        if(validaRut($rutvalidar)==true){
+
+            echo "El rut ".$rutvalidar." es valido";
+
+		/*$validator = Validator::make($data = Input::only('empresa_fk','nombres','apellidos','telefono','email'), ContactosEmpresariale::$rules);
 
 		if ($validator->fails())
 		{
@@ -48,7 +82,21 @@ class ContactosEmpresarialesController extends \BaseController {
 
         ContactosEmpresariale::create($data);
 
-		return Redirect::route('contactos_empresariales.index');
+            $ContactosEmpresariale->rut=substr(Input::get('rut'),0,-2);
+
+		return Redirect::route('contactos_empresariales.index');*/
+            $contactosempresariales= new ContactosEmpresariale();
+            $contactosempresariales->empresa_fk=Input::get('empresa_fk');
+            $contactosempresariales->rut=substr(Input::get('rut'),0,-2);
+            $contactosempresariales->nombres=Input::get('nombres');
+            $contactosempresariales->apellidos=Input::get('apellidos');
+            $contactosempresariales->telefono=Input::get('telefono');
+            $contactosempresariales->email=Input::get('email');
+            $contactosempresariales->save();
+
+        }else{
+            echo "El rut ".$rutvalidar." no es correcto";
+        }
 	}
 
 	/**

@@ -28,4 +28,5 @@ Route::resource('practicas', 'PracticasController');
 Route::get('/login', array('uses' => 'UserController@formulario_login', 'as' => 'user.formulario_login'));
 Route::post('/login', array('uses' => 'UserController@hacer_login', 'as' => 'user.hacer_login'));
 Route::resource('roles', 'RolesController');
+Route::resource('areas_tematicas', 'AreasTematicasController');
 //Route::get('/facultad', 'FacultadController@index');

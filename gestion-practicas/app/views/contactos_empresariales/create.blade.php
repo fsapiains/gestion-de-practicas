@@ -11,7 +11,7 @@
 {{ Form::text('nombres') }} <br> <br>
 {{ Form::label('apellidos', 'Apellidos: ') }}
 {{ Form::text('apellidos') }} <br> <br>
-{{ Form::label('rut', 'Rut: ') }}
+{{ Form::label('rut', 'Rut (sin puntos ni guion): ') }}
 {{ Form::text('rut') }} <br> <br>
 {{ Form::label('telefono', 'Teléfono: ') }}
 {{ Form::text('telefono') }} <br> <br>
