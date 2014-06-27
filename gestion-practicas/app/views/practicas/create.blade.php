@@ -4,7 +4,8 @@
 </head>
 <body>
 <h1>Ingreso de practica</h1>
-      {{ Form::open(array('route' => array('practicas.store'))) }}
+
+      {{ Form::open(array('route' => array('practicas.store'), 'files' => true)) }}
       {{ Form::label('rut', 'Rut estudiante(sin puntos ni guión): ') }}
       {{ Form::text('rut') }} <br> <br>
       {{ Form::label('contacto_fk', 'Contacto: ') }}
@@ -23,7 +24,7 @@
       {{ Form::select('evaluacion',$evaluacion_select) }} <br> <br>
       {{ Form::label('archivo' , 'Archivo: ') }}
       {{ Form::file('archivo') }} <br> <br>
-      {{ Form::open(array('url'=>'public/uploads','files'=> true))}}
+
       {{ Form::submit('Enviar') }}
 {{ Form::close() }}
 

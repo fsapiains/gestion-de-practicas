@@ -88,7 +88,7 @@ class EstudiantesController extends \BaseController {
                 return false;
             }
         }
-      /*  function validatelefono($telefono){
+      //function validatelefono($telefono){
         $datos = array(Input::get('telefono'));
         $validaciones = array( 'telefono' => array('required', 'regex:^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$ '));
 
@@ -99,13 +99,14 @@ class EstudiantesController extends \BaseController {
         }else{
             echo "valido";
         }
-        }*/
+     //   }*/
        // }
       // $telefonovalidar=Input::get('telefono');
-      $rutvalidar=Input::get('rut');
-      if(validaRut($rutvalidar)==true){// && validatelefono($telefonovalidar)==true){
+    //  $rutvalidar=Input::get('rut');
+    //  if(validaRut($rutvalidar)==true){// && validatelefono($telefonovalidar)==true){
 
-          echo "El rut ".$rutvalidar." es valido";
+        //  echo "El rut ".$rutvalidar." es valido";
+     /*   if(validatelefono($telefonovalidar))
         // echo "el telefono tambien";
 
          $estudiante=new Estudiante;
