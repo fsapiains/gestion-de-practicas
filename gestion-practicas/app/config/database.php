@@ -65,10 +65,11 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'port'		=> '5432',
-			'database' => 'gestionpracticas',
-			'password' => '',
+			'host'     =>  '146.83.181.4',
+			'port'		=> '6432',
+			'database' => 'iswdb',
+            'username' => 'grupo05',
+			'password' => 'd27cfd',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
