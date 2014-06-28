@@ -16,15 +16,6 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('register', function()
-{
-    $empresas = empresa::all();
-    $empresas_select = array();
-    foreach($empresas as $empresa) {
-        $empresas_select[$empresa->pk] = $empresa->nombre_real;
-    }
-    return View::make('contactos_empresariales.create')->with('empresas', $empresas_select,'mensaje','¡Usuario registrado correctamente!.');
-});
 
 Route::resource('rubros', 'RubrosController');
 Route::resource('empresas', 'EmpresasController');
@@ -39,4 +30,5 @@ Route::get('/login', array('uses' => 'UserController@formulario_login', 'as' => 
 Route::post('/login', array('uses' => 'UserController@hacer_login', 'as' => 'user.hacer_login'));
 Route::resource('roles', 'RolesController');
 Route::resource('areas_tematicas', 'AreasTematicasController');
+Route::resource('usuarios', 'UsuariosController');
 //Route::get('/facultad', 'FacultadController@index');

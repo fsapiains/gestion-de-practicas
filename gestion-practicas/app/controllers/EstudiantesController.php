@@ -40,7 +40,6 @@ class EstudiantesController extends \BaseController {
 	 */
 	public function store()
 	{
-        $rut = Input::get('rut');
 
         $url = "https://146.83.181.139/saap-rest/api/fichaEstudiante/$rut";
 
@@ -56,8 +55,6 @@ class EstudiantesController extends \BaseController {
        // var_dump($objeto);
 
         //$data=array($objeto->nombres,$objeto->apellidos,$objeto->fechaNacimiento,$objeto->genero,$objeto->email,$objeto->estado,$objeto->codigoCarrera);
-
-
 
         function validaRut($rut){
             if(strpos($rut,"-")==false){
@@ -88,57 +85,42 @@ class EstudiantesController extends \BaseController {
                 return false;
             }
         }
-      //function validatelefono($telefono){
+
        // $datos = array(Input::get('telefono'));
         // $validaciones = array( 'telefono' => array('required', 'max:8'));//'regex:^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$ '));
 
         $validator = Validator::make($datos=Input::only('telefono'), Estudiante::$rules);
 
         if ( $validator->fails() ){
-            echo "invalido";
+            echo "el telefono es invalido";
         }else{
-            echo "valido";
-        }
-     //   }*/
-       // }
-      // $telefonovalidar=Input::get('telefono');
-    //  $rutvalidar=Input::get('rut');
-    //  if(validaRut($rutvalidar)==true){// && validatelefono($telefonovalidar)==true){
 
-        //  echo "El rut ".$rutvalidar." es valido";
-     /*   if(validatelefono($telefonovalidar))
-        // echo "el telefono tambien";
-
-         $estudiante=new Estudiante;
-
-        $estudiante->nombres=$objeto->nombres;
-        $estudiante->apellidos=$objeto->apellidos;
-        $estudiante->fecha_nacimiento=$objeto->fechaNacimiento;
-        if($gen=$objeto->genero=='M')$estudiante->genero=1;
-        else $estudiante->genero=0;
-
+          $rutvalidar=Input::get('rut');
+          if(validaRut($rutvalidar)==true){
+     // echo "valido";
+          $estudiante=new Estudiante;
+          $estudiante->nombres=$objeto->nombres;
+          $estudiante->apellidos=$objeto->apellidos;
+          $estudiante->fecha_nacimiento=$objeto->fechaNacimiento;
+          if($gen=$objeto->genero=='M')$estudiante->genero=1;
+          else $estudiante->genero=0;
           $estudiante->email=$objeto->email;
           $estudiante->estado=$objeto->estado;
-
           $estudiante->direccion=Input::get('direccion');
           $estudiante->rut=substr(Input::get('rut'),0,-2);
-
           $estudiante->telefono=Input::get('telefono');
           $estudiante->carrera_fk=Input::get('carrera_fk');
           $estudiante->save();
-
-
-          //  else echo "el telefono es invalido";
-
+          }else{ echo "el rut es invalido";
+          }
+        }
       }
-          else echo "El rut ".$rutvalidar." no es correcto";
 
+      /* $datos = Input::only('direccion','telefono');
 
-      // $datos = Input::only('direccion','telefono');
+        Estudiante::create($datos);
 
-       // Estudiante::create($datos);
-
-       // return Redirect::route('estudiantes.index');
+        return Redirect::route('estudiantes.index');
 
 		/*$validator = Validator::make($data = Input::only('rut','nombres','apellidos','fecha_nacimiento','genero','direccion','telefono','email','estado','carrera_fk'), Estudiante::$rules);
 
@@ -150,7 +132,6 @@ class EstudiantesController extends \BaseController {
 		Estudiante::create($data);
 
 		return Redirect::route('estudiantes.index'); */
-    }
 
 
 	/**

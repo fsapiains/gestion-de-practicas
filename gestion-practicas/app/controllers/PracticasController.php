@@ -64,8 +64,15 @@ class PracticasController extends \BaseController {
        $carrerafk = DB::table('estudiantes')->where('rut', '=', $rut )->get(array('carrera_fk'));
        $aprobacion=(float)Input::get('evaluacion');
 
-
-      $practica=new Practica();
+       $arreglo = Practica::$rules;
+       error_log(var_export($arreglo, true));
+       $validator = Validator::make($datos=Input::only('fecha','fecha_inicio','fecha_termino','archivo'), $arreglo , Practica::$messages);
+        if ( $validator->fails() ){
+            // echo "invalido";
+            return Redirect::to('practicas/create')->withErrors($validator);//->with_input();
+        }
+        else{ echo "ingresado correctamente";
+     /*   $practica=new Practica();
         $practica->carrera_fk=$carrerafk[0]->carrera_fk;
         $practica->contacto_fk=Input::get('contacto_fk');
         $practica->estudiante_fk=$estudiantefk[0]->pk;
@@ -79,12 +86,12 @@ class PracticasController extends \BaseController {
         $destination='public/uploads';
         $filename=$archivo->getClientOriginalName();
         $uploadSuccess=$archivo->move($destination,$filename);
-            if ($uploadSuccess){
+          /*  if ($uploadSuccess){
                 echo "se subio el archivo";
             }
             else{ echo"error: el archivo no se cargó correctamente ";
-            }
-
+            }*/
+        }
 
       /*  if ($uploadSuccess){
             echo "se subio el archivo";
@@ -94,7 +101,7 @@ class PracticasController extends \BaseController {
 
        // $practica->archivo= Input::file('archivo')->move('uploads');
 
-        $practica->save();
+    /*    $practica->save();
 	/*	$validator = Validator::make($data = Input::only('carrera_fk','contacto_fk','estudiante_fk','fecha','fecha_imicio','fecha_termino','horas','evaluacion','archivo'), Practica::$rules);
 
 		if ($validator->fails())

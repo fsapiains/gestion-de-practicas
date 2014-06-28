@@ -70,17 +70,32 @@ class ContactosEmpresarialesController extends \BaseController {
       }
 
 	  //return Redirect::route('contactos_empresariales.index');
+        $arreglo = ContactosEmpresariale::$rules;
+        error_log(var_export($arreglo, true));
+        $rutvalidar=Input::get('rut');
+        if(validaRut($rutvalidar)==false){
+           // return Redirect::to('contactos_empresariales/create')->withFails('el rut no es válido');
+           $datos=[
+               Input::get('email'),
+               $rutinval=substr(Input::get('rut'),0,-5)
+           ];
+          // var_dump($datos);
+          $validator = Validator::make($datos, $arreglo , ContactosEmpresariale::$messages);
 
-        $validator = Validator::make($datos=Input::only('email'), ContactosEmpresariale::$rules, ContactosEmpresariale::$messages);
-
-        if ( $validator->fails() ){
-            echo "invalido";
-           //  return Redirect::to('register');//->with_errors($validator)->with_input();
+           if ( $validator->fails() ){
+           // echo "invalido";
+             return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
+           }
         }else{
 
-          $rutvalidar=Input::get('rut');
-          if(validaRut($rutvalidar)==true){
-            $contactosempresariales= new ContactosEmpresariale();
+         $validator = Validator::make($datos1=Input::only('email'), $arreglo , ContactosEmpresariale::$messages);
+
+            if ( $validator->fails() ){
+                // echo "invalido";
+            return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
+            }
+            else{
+          /*  $contactosempresariales= new ContactosEmpresariale();
             $contactosempresariales->empresa_fk=Input::get('empresa_fk');
             $contactosempresariales->rut=substr(Input::get('rut'),0,-2);
             $contactosempresariales->nombres=Input::get('nombres');
@@ -88,13 +103,15 @@ class ContactosEmpresarialesController extends \BaseController {
             $contactosempresariales->telefono=Input::get('telefono');
             $contactosempresariales->email=Input::get('email');
             $contactosempresariales->save();
-            //return Redirect::to('register');//->with('mensaje','¡Usuario registrado correctamente!.');
+           // return Redirect::to('register');//->with('mensaje','¡Usuario registrado correctamente!.');*/
             echo "contacto registrado correctamente!";
+           //boton de volver al inicio redirect::to blabla
+            }
 
-           }
-
-        }
+       }
 	}
+
+
 
 	/**
 	 * Display the specified contactosempresariale.
@@ -130,7 +147,7 @@ class ContactosEmpresarialesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$contactosempresariale = Contactosempresariale::findOrFail($id);
+	/*	$contactosempresariale = Contactosempresariale::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), Contactosempresariale::$rules);
 
@@ -141,7 +158,7 @@ class ContactosEmpresarialesController extends \BaseController {
 
 		$contactosempresariale->update($data);
 
-		return Redirect::route('contactos_empresariales.index');
+		return Redirect::route('contactos_empresariales.index');*/
 	}
 
 	/**

@@ -29,14 +29,16 @@ class UserController extends \BaseController {
         $contexto = stream_context_create($opciones);
 
         $objeto = json_decode(file_get_contents($url, false, $contexto));
-        if (!empty($objeto)) {
+        var_dump($objeto);
+
+       if (!empty($objeto)) {
             error_log($objeto->mensaje . " rut $rut");
             if ($objeto->respuesta)
                 $resultado = 'login ok';
             else
                 $resultado = 'login fail';
         }
-        return $resultado;
+        echo $resultado;
 	}
 
 
