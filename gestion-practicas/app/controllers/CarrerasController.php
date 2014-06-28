@@ -43,16 +43,21 @@ class CarrerasController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::only('codigo','nombre','escuela_fk'), Carrera::$rules);
+        $arreglo = Carrera::$rules;
+         error_log(var_export($arreglo, true));
+
+		$validator = Validator::make($data = Input::only('codigo','nombre','escuela_fk'), $arreglo, Carrera::$messages);
 
 		if ($validator->fails())
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Redirect::to('carreras/create')->withErrors($validator);//->withInput();
 		}
 
-		Carrera::create($data);
-
-		return Redirect::route('carreras.index');
+		else{
+            echo "datos guardados exitosamente";
+            Carrera::create($data);
+        }
+		//return Redirect::route('carreras.index');
 	}
 
 	/**

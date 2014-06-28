@@ -7,15 +7,19 @@ class ContactosEmpresariale extends \Eloquent {
 	// Add your validation rules here
 	public static $rules = [
         'email' => 'required|email',
-        'rut'=> 'required|min:9|max:9'
+        'rut'=> 'required|min:9'
   ];
 
     public static $messages = [
         'required' => 'El campo :attribute es obligatorio.',
         'email' => 'El campo :attribute debe ser un email válido.',
-        'rut'=> 'El campo :attribute debe ser un rut valido'
-
+        'min:9'=> 'El campo :attribute debe ser un rut valido'
     ];
+
+    public static $rules1 = [
+        'email' => 'required|email'
+    ];
+
 
 
 	// Don't forget to fill this array

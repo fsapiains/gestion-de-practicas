@@ -26,6 +26,7 @@
       {{ Form::file('archivo') }} <br> <br>
       {{ Form::submit('Enviar') }}
       {{ Form::close() }}
+
       <br> <br>
       @if($errors->has())
       @foreach ($errors->all() as $error)

@@ -39,16 +39,19 @@ class EmpresasController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::only('rut', 'nombre_real','nombre_fantasia','direccion','rubro_fk','telefono','email'), Empresa::$rules);
+        $arreglo = Empresa::$rules;
+        error_log(var_export($arreglo, true));
+		$validator = Validator::make($data = Input::only('rut', 'nombre_real','nombre_fantasia','direccion','rubro_fk','telefono','email'), $arreglo, Empresa::$messages);
 
 		if ($validator->fails())
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+            return Redirect::to('carreras/create')->withErrors($validator);
 		}
+        else{
 
 		Empresa::create($data);
-
-		return Redirect::route('empresas.index');
+        }
+		//return Redirect::route('empresas.index');
 	}
 
 	/**

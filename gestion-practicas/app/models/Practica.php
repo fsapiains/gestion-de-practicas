@@ -10,14 +10,14 @@ class Practica extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-        'fecha' => 'date_format:yyyy-mm-dd|required',
-        'fecha_inicio' => 'date_format:yyyy-mm-dd',
-        'fecha_termino' => 'date_format:yyyy-mm-dd',
+        'fecha' => 'date_format:y-m-d|required',
+        'fecha_inicio' => 'date_format:y-m-d',
+        'fecha_termino' => 'date_format:y-m-d',
         'archivo' => 'mimes:pdf,doc,docx'
 	];
     public static $messages = [
         'required' => 'El campo :attribute es obligatorio.',
-        'date_format:yyyy-mm-dd'=> 'El formato de :attribute no es válida',
+        'date_format:y-m-d'=> 'El formato de :attribute no es válida',
         'mimes:pdf,doc,docx'=>'El formato de archivo no es válido'
     ];
 
