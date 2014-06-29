@@ -8,7 +8,7 @@
     <nav>
         <ul>
             <li>
-                <a>Datos personales</a>
+                <a href="practicas/create">Datos personales </a>
             </li>
             <li>
                 <a>Práctica</a>

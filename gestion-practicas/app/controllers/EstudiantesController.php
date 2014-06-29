@@ -40,7 +40,7 @@ class EstudiantesController extends \BaseController {
 	 */
 	public function store()
 	{
-
+        $rut=Input::get('rut');
         $url = "https://146.83.181.139/saap-rest/api/fichaEstudiante/$rut";
 
         $opciones = array(
@@ -194,4 +194,24 @@ class EstudiantesController extends \BaseController {
 
 		return Redirect::route('estudiantes.index');
 	}
+
+    /*Funcion para buscar estudiante por rut*/
+
+    public function buscar()
+    {
+        $keyword=Input::get('keyword');
+        $estudiantes=Estudiante::whereRaw('nombres LIKE ?',["%$keyword%"])->get();
+        //var_dump($estudiantes[0]->nombres);
+        foreach($estudiantes as $estudiante)
+        {
+            var_dump($estudiante->nombres);
+
+        }
+
+
+
+    }
+
+
+
 }

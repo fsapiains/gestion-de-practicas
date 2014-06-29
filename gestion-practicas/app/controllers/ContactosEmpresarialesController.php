@@ -75,36 +75,34 @@ class ContactosEmpresarialesController extends \BaseController {
        // error_log(var_export($arreglo, true));
         $rutvalidar=Input::get('rut');
         if(validaRut($rutvalidar)==false){
-           // return Redirect::to('contactos_empresariales/create')->withFails('el rut no es válido');
-           error_log(var_export($arreglo, true));
-           $datos=array(
+                // return Redirect::to('contactos_empresariales/create')->withFails('el rut no es válido');
+                error_log(var_export($arreglo, true));
+                $datos=array(
                'email'=>Input::get('email'),
                'rut'=>substr(Input::get('rut'),0,-6)
-           );
-           //var_dump($datos);
-           $validator = Validator::make($datos, $arreglo , ContactosEmpresariale::$messages);
+                );
+                //var_dump($datos);
+                $validator = Validator::make($datos, $arreglo , ContactosEmpresariale::$messages);
 
-           if ( $validator->fails() ){
-           // echo "invalido";
-             // var_dump($datos);
-              return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
-
-           }
+                 if ( $validator->fails() ){
+                 // echo "invalido";
+                 // var_dump($datos);
+                 return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
+               }
         }else{
+                error_log(var_export($arreglo1, true));
 
-            error_log(var_export($arreglo1, true));
+                 $validator = Validator::make($datos=Input::only('email'), $arreglo1 , ContactosEmpresariale::$messages);
 
-            $validator = Validator::make($datos=Input::only('email'), $arreglo1 , ContactosEmpresariale::$messages);
-
-            if ( $validator->fails() ){
+                if ( $validator->fails() ){
                //  echo "invalido";
-             return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
-            }
-            else{
+                return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
+                }
+               else{
           /*  $contactosempresariales= new ContactosEmpresariale();
-            $contactosempresariales->empresa_fk=Input::get('empresa_fk');
-            $contactosempresariales->rut=substr(Input::get('rut'),0,-2);
-            $contactosempresariales->nombres=Input::get('nombres');
+              $contactosempresariales->empresa_fk=Input::get('empresa_fk');
+              $contactosempresariales->rut=substr(Input::get('rut'),0,-2);
+              $contactosempresariales->nombres=Input::get('nombres');
             $contactosempresariales->apellidos=Input::get('apellidos');
             $contactosempresariales->telefono=Input::get('telefono');
             $contactosempresariales->email=Input::get('email');

@@ -1,9 +1,9 @@
 <html>
 <head>
-    <title>Login</title>
+    <title>Nuevo usuario</title>
 </head>
 <body>
-<h1>Este es el login</h1>
+<h1>Crear usuario</h1>
 {{ Form::open(array('route' => array('usuarios.store'))) }}
 {{ Form::label('rut','Rut: ') }}
 {{ Form::text('rut') }} <br> <br>
