@@ -8,59 +8,68 @@ class UsuariosController extends \BaseController
             $rut = Input::get('rut');
             $contrasena = Input::get('contrasena');
 
-            // Agregar validacion de campos
+            $arreglo = Usuario::$rules;
+            error_log(var_export($arreglo, true));
+            $validator = Validator::make($data = Input::only('rut'), $arreglo, Usuario::$messages);
 
-            $userdata = array('rut' => $rut, 'password' => $contrasena);
-            $userdata['rut'] = substr(Input::get('rut'),0,-1);
-
-            // Autentificar contra db
-
-            if(Auth::attempt($userdata))
+            if ($validator->fails())
             {
-                Session::put('rut', $rut);
-                return View::make('home');
+                return Redirect::to('/login')->withErrors($validator);
             }
-            else
-            {
-                //Autentificar con rest
+            else{
 
-                $password = hash('sha256', strtoupper($contrasena));
-                $url = "https://146.83.181.139/saap-rest/api/autenticar/$rut/$password";
+                $userdata = array('rut' => $rut, 'password' => $contrasena);
+                $userdata['rut'] = substr(Input::get('rut'),0,-1);
 
-                $opciones = array(
-                    'http' => array(
-                        'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
-                    )
-                );
+                // Autentificar contra db
 
-                $contexto = stream_context_create($opciones);
-
-                $objeto = json_decode(file_get_contents($url, false, $contexto));
-
-                if (!empty($objeto)) {
-                    error_log($objeto->mensaje . " rut $rut");
-                    $login_ok_rest = $objeto->respuesta;
-                }
-
-                if($login_ok_rest) // Autentico bien por rest
+                if(Auth::attempt($userdata))
                 {
                     Session::put('rut', $rut);
-                    $usuario = new Usuario;
-                    $usuario->rut = substr(Input::get('rut'), 0, -1);
-                    $usuario->password = Hash::make(Input::get('contrasena'));
-                    $usuario->save();
-                    $carreras = Carrera::all();
-                    $carreras_select = array();
-                    foreach ($carreras as $carrera) {
-                        $carreras_select[$carrera->pk] = $carrera->nombre;
-                    }
-                    return View::make('estudiantes.create')->with('carreras', $carreras_select);
-                   // return View::make('home');
+                    return View::make('home');
                 }
                 else
                 {
-                 return Redirect::to('/login')->with('Autenticacion fallida');
-                 }
+                    //Autentificar con rest
+
+                    $password = hash('sha256', strtoupper($contrasena));
+                    $url = "https://146.83.181.139/saap-rest/api/autenticar/$rut/$password";
+
+                    $opciones = array(
+                        'http' => array(
+                            'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
+                        )
+                    );
+
+                    $contexto = stream_context_create($opciones);
+
+                    $objeto = json_decode(file_get_contents($url, false, $contexto));
+
+                    if (!empty($objeto)) {
+                        error_log($objeto->mensaje . " rut $rut");
+                        $login_ok_rest = $objeto->respuesta;
+                    }
+
+                    if($login_ok_rest) // Autentico bien por rest
+                    {
+                        Session::put('rut', $rut);
+                        $usuario = new Usuario;
+                        $usuario->rut = substr(Input::get('rut'), 0, -1);
+                        $usuario->password = Hash::make(Input::get('contrasena'));
+                        $usuario->save();
+                        $carreras = Carrera::all();
+                        $carreras_select = array();
+                        foreach ($carreras as $carrera) {
+                            $carreras_select[$carrera->pk] = $carrera->nombre;
+                        }
+                        return View::make('estudiantes.create')->with('carreras', $carreras_select);
+                       // return View::make('home');
+                    }
+                    else
+                    {
+                     return Redirect::to('/login')->withErrors('Contraseña incorrecta');
+                     }
+                }
             }
     }
 

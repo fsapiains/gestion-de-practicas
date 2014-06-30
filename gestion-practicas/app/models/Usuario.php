@@ -6,10 +6,14 @@ class Usuario extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
-	];
+        'rut'=> 'required|rut'
+    ];
 
-	// Don't forget to fill this array
+    public static $messages = [
+        'required' => 'El campo :attribute es obligatorio.',
+    ];
+
+    // Don't forget to fill this array
 	protected $fillable = ['rut','password'];
 
     public $timestamps = false;
