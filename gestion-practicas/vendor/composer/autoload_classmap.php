@@ -1450,7 +1450,7 @@ return array(
     'Symfony\\Component\\Security\\Core\\Exception\\TokenNotFoundException' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Exception/TokenNotFoundException.php',
     'Symfony\\Component\\Security\\Core\\Exception\\UnsupportedUserException' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Exception/UnsupportedUserException.php',
     'Symfony\\Component\\Security\\Core\\Exception\\UsernameNotFoundException' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Exception/UsernameNotFoundException.php',
-    'Symfony\\Component\\Security\\Core\\Role\\Role' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Role/Role.php',
+    'Symfony\\Component\\Security\\Core\\Role\\Role' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Role/Rol.php',
     'Symfony\\Component\\Security\\Core\\Role\\RoleHierarchy' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Role/RoleHierarchy.php',
     'Symfony\\Component\\Security\\Core\\Role\\RoleHierarchyInterface' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Role/RoleHierarchyInterface.php',
     'Symfony\\Component\\Security\\Core\\Role\\RoleInterface' => $vendorDir . '/symfony/security-core/Symfony/Component/Security/Core/Role/RoleInterface.php',

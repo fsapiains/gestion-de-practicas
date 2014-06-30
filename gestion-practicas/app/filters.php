@@ -82,7 +82,7 @@ Route::filter('csrf', function()
 
 Route::filter('admin', function()
 {
-    $calzar = true; // Si se mantiene en true, el usuario no es un admin
+    $calzar = false; // Si se mantiene en true, el usuario no es un admin
     if(Session::has('rut'))
     {
         $user = Usuario::where('rut', '=', Session::get('rut'))->first();

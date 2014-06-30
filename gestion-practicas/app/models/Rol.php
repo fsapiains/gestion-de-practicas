@@ -1,6 +1,6 @@
 <?php
 
-class Role extends \Eloquent {
+class Rol extends \Eloquent {
 
     protected $primaryKey = 'pk';
 

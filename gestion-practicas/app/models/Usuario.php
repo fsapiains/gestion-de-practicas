@@ -14,8 +14,8 @@ class Usuario extends \Eloquent {
 
     public $timestamps = false;
 
-    public function roles_usuarios()
+    public function roles_usuario()
     {
-        return $this->hasMany('RolesUsuario', 'usuario_fk');
+        return $this->hasMany('RolesUsuario', 'rol_fk');
     }
 }

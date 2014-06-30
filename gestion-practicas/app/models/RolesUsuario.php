@@ -14,4 +14,8 @@ class RolesUsuario extends \Eloquent {
 
     public $timestamps = false;
 
+    public function rol()
+    {
+        return $this->hasOne('Rol', 'rol_fk');
+    }
 }
