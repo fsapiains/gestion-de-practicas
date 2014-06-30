@@ -7,7 +7,7 @@
 
 <article>
     <section>
-        <h1>Ingreso de contacto</h1>
+        <h1>Ingreso de contacto empresarial</h1>
             <div class="form">
                  {{ HTML::style('css/stylesheet.css') }}
                  {{ Form::open(array('route' => array('contactos_empresariales.store'))) }}
@@ -38,3 +38,4 @@
       </section>
   </article>
 </body>
+

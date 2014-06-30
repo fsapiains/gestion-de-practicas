@@ -62,7 +62,7 @@ class ContactosEmpresarialesController extends \BaseController {
           $contactosempresariales->save();
        // return Redirect::to('register');//->with('mensaje','¡Usuario registrado correctamente!.');*/
           echo "contacto registrado correctamente!";
-       //boton de volver al inicio redirect::to blabla
+         return Redirect::to('empresas/create');
         }
 
        }

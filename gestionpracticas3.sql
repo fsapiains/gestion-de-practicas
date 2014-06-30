@@ -660,6 +660,8 @@ SELECT pg_catalog.setval('carreras_pk_seq', 12, true);
 
 COPY contactos_empresariales (pk, empresa_fk, nombres, apellidos, rut, telefono, email) FROM stdin;
 3	1	Juan isaac	Ruiz Campos	8972600	24782758	jruiz@tecza.cl
+5	1	Alejandro	Nuñez	1812092	12345678	hola@hola.cl
+8	1	Luis	Muñoz	550552	12345678	luis@hola.cl
 \.
 
 
@@ -667,7 +669,7 @@ COPY contactos_empresariales (pk, empresa_fk, nombres, apellidos, rut, telefono,
 -- Name: contactos_empresariales_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: air
 --
 
-SELECT pg_catalog.setval('contactos_empresariales_pk_seq', 3, true);
+SELECT pg_catalog.setval('contactos_empresariales_pk_seq', 8, true);
 
 
 --
@@ -712,6 +714,10 @@ SELECT pg_catalog.setval('departamentos_pk_seq', 2, true);
 COPY empresas (pk, rut, nombre_real, nombre_fantasia, direccion, rubro_fk, telefono, email) FROM stdin;
 1	983498589	teczacom	tecza	cuevas 645	2	24782758	hola@teczacom.cl
 4	760269603	Administradora y Comercial La Florida Ltda.	Calzados Florida	valentin 456	13	72738344	calzadosflorida@florida.cl
+5	396210010	Solar y fuentes Ltda.	Solarf	las palmas 1415	7	12345678	hokajfj@dg.cl
+7	177711160	cueros Ltda	super cueros	hola 123	13	12345678	hola@cueros.cl
+9	837446007	cueros Ltda	super cueros	hola 123	13	12345678	hola@cueros.cl
+10	780721308	Trendy Ltda.	Helados trendy	Los helados 123	9	12345678	trendy@helados.cl
 \.
 
 
@@ -719,7 +725,7 @@ COPY empresas (pk, rut, nombre_real, nombre_fantasia, direccion, rubro_fk, telef
 -- Name: empresas_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: air
 --
 
-SELECT pg_catalog.setval('empresas_pk_seq', 4, true);
+SELECT pg_catalog.setval('empresas_pk_seq', 10, true);
 
 
 --
@@ -755,17 +761,12 @@ SELECT pg_catalog.setval('escuelas_pk_seq', 14, true);
 --
 
 COPY estudiantes (pk, rut, nombres, apellidos, fecha_nacimiento, genero, direccion, telefono, email, estado, carrera_fk) FROM stdin;
-9	17707063	Francisca Anali	Sapiains Carrasco	1992-02-01	0	Huilqueco 7340	22855432	keep.searching@hotmail.es	Regular	2
 10	17771116	Jonathan Gregor	Leon Sepulveda	1992-02-01	1	Blindado blanco 1645	89342651	jonathan-leon@hotmail.com	Regular	2
 12	16455011	Catalina Andrea	Frigerio Garcia	1985-02-11	0	one direction 771	34772721	aanizz@hotmail.com	Transferido	5
-16	18120924	Diego Cristobal	Navia Fuentes	1992-02-01	1	hueona 1234	66666666	diogo.again@hotmail.es	Regular	7
-17	18057493	Francisco Herna	Ramirez Fernandez	1992-02-01	1	las putas 345	817374824	eldiezdiez@ghetto.la	Regular	6
-18	15997886	Sebastian Alexis	Salazar Molina	1985-03-13	1	las hualtatas 345	728748243	sebasalazar@gmail.com	Egreso	2
-19	17837397	Juan Carlos	Perez Barea	1991-02-01	1	holahola 145	76536489	j.c.perez.91@gmail.com	Regular	10
 20	18074422	Jose Antonio	Concha Medina	1992-02-01	1	so pink 456	87639485	joseph_antony_192@hotmail.com	Regular	11
-21	17851177	Carla Aracely	Arteaga Constanzo	1992-02-01	0	los hueones 8475	76534261	lynda_yo14@hotmail.com	Regular	12
-23	17680010	Sebastian Andre	Esparza Gortaris	1992-02-01	1	aguila azul 645	72646284	seba_emc2@hotmail.com	Regular	9
-39	17876307	Patricio Alejan	Perez Valverde	1992-02-01	1	adsdfs	12345678	no_responder@sincorreo.cl	Regular	8
+42	18048821	Natalia Andrea	Tarifeño Ortiz	1992-02-01	0	holahola123	12345678	nathiitha_92@live.com	Regular	2
+43	17707063	Francisca Anali	Sapiains Carrasco	1992-02-01	0	Los pinos 456	12345678	keep.searching@hotmail.es	Regular	6
+44	17925290	Victoria Del Carmen	Muñoz Brenet	1991-06-06	0	Frucola 123	12345678	victoriamunozb@hotmail.com	Regular	7
 \.
 
 
@@ -773,7 +774,7 @@ COPY estudiantes (pk, rut, nombres, apellidos, fecha_nacimiento, genero, direcci
 -- Name: estudiantes_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: air
 --
 
-SELECT pg_catalog.setval('estudiantes_pk_seq', 39, true);
+SELECT pg_catalog.setval('estudiantes_pk_seq', 44, true);
 
 
 --
@@ -802,6 +803,7 @@ SELECT pg_catalog.setval('facultades_pk_seq', 6, true);
 
 COPY practicas (pk, carrera_fk, contacto_fk, estudiante_fk, fecha, fecha_inicio, fecha_termino, horas, evaluacion, archivo, areas_tematica_fk) FROM stdin;
 28	2	3	10	2014-06-29 20:27:23	2014-10-30	2015-01-15	320	0.0	\N	4
+29	7	5	44	2014-06-30 17:27:41	1990-11-10	2015-01-15	320	1.0	\N	4
 \.
 
 
@@ -809,7 +811,7 @@ COPY practicas (pk, carrera_fk, contacto_fk, estudiante_fk, fecha, fecha_inicio,
 -- Name: practicas_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: air
 --
 
-SELECT pg_catalog.setval('practicas_pk_seq', 28, true);
+SELECT pg_catalog.setval('practicas_pk_seq', 29, true);
 
 
 --
@@ -833,7 +835,6 @@ SELECT pg_catalog.setval('roles_pk_seq', 1, true);
 --
 
 COPY roles_usuarios (pk, usuario_fk, rol_fk) FROM stdin;
-2	22	1
 \.
 
 
@@ -877,8 +878,11 @@ SELECT pg_catalog.setval('rubros_pk_seq', 14, true);
 --
 
 COPY usuarios (id, rut, password, remember_token) FROM stdin;
-22	17707063	$2y$10$4.LrxFMO4F0wFjH5wDNVnu3etpkoBAIdOhgfviT108aoupiOe16Ga	\N
 23	17876307	$2y$10$kvoD5N09IvfO6ztmHVga.OKBysqux15556VPy81UM5d/.oyyWQs2C	UNT4Fuoff7AjBKFuDHYM49fW9v2UltZSDUhK7O2aYHc7dbfneX7fUpT9Q4kT
+24	18165383	$2y$10$.VQ923a09M.89a1N5rH7l./vX3fhhisyX8FlQwf04uH/ScnQnpFhG	IXY7uhIZDrILHxzrqMNBB6RiBFpMkCkdKAd2E315hGZpwlmPSvwHcDp7LrVF
+28	18048821	$2y$10$RSPB1DLiZ73JAli9.mr0wOP2ygme.0b0jpfuYK2vl2DlFg8bq.2m2	\N
+29	17707063	$2y$10$p6.56.XoQS9oNwI3u9HcduB.qJO/WKMzXNf6syJpGKjbqbj5eXX8a	\N
+30	17925290	$2y$10$ycoEqGCsbcOFCJ0rLuJO7eiv9wePi5B7MbAzrwTpCNoTHPguiuX7C	\N
 \.
 
 
@@ -886,7 +890,7 @@ COPY usuarios (id, rut, password, remember_token) FROM stdin;
 -- Name: usuarios_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: air
 --
 
-SELECT pg_catalog.setval('usuarios_pk_seq', 23, true);
+SELECT pg_catalog.setval('usuarios_pk_seq', 30, true);
 
 
 --

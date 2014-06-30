@@ -45,7 +45,8 @@ class EstudiantesController extends \BaseController
         $estudiante = Estudiante::where('rut', '=', $rut)->first();
 
         if ($estudiante) {
-            return Redirect::route('estudiantes.show', array($estudiante->pk));
+          //  return Redirect::route('estudiantes.show', array($estudiante->pk));
+            return View::make('home');
         } else {
             $rut1 = Session::get('rut');
             //obtener la ficha del estudiante desde el rest
@@ -63,7 +64,7 @@ class EstudiantesController extends \BaseController
             $validator = Validator::make($datos = Input::only('telefono'), Estudiante::$rules, Estudiante::$messages);
 
             if ($validator->fails()) {
-                echo "el telefono es invalido";
+                return Redirect::to('estudiantes/create')->withErrors($validator);
             } else {
 
                 // Ingresar datos del estudiante a la db
@@ -81,7 +82,9 @@ class EstudiantesController extends \BaseController
                 $estudiante->carrera_fk = Input::get('carrera_fk');
                 $estudiante->save();
             }
+            return View::make('home');
         }
+
     }
 
     /* $datos = Input::only('direccion','telefono');

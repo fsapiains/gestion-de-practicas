@@ -84,7 +84,7 @@ class PracticasController extends \BaseController
 
         error_log(var_export($arreglo, true));
 
-        $validator = Validator::make(Input::only($datos = 'rut', 'archivo','fecha_inicio','fecha_termino'), $arreglo, Practica::$messages);
+        $validator = Validator::make(Input::only($datos = 'archivo','fecha_inicio','fecha_termino'), $arreglo, Practica::$messages);
 
         if ($validator->fails()) {
             // echo "invalido";
@@ -104,8 +104,8 @@ class PracticasController extends \BaseController
             $objeto = json_decode(file_get_contents($url, false, $contexto));
 
 
-
-            $rut = substr(Input::get('rut'), 0, -1);
+            $rut = substr(Session::get('rut'), 0, -1);
+           // $rut = substr(Input::get('rut'), 0, -1);
             $estudiantefk = DB::table('estudiantes')->where('rut', '=', $rut)->get(array('pk'));
             // var_dump($estudiantefk[0]->pk);
 
@@ -133,7 +133,10 @@ class PracticasController extends \BaseController
              else{ echo"error: el archivo no se cargó correctamente ";
              }*/
            $practica->save();
+            echo 'Práctica registrada correctamente';
+            return Redirect::route('home');
         }
+
     }
 
 

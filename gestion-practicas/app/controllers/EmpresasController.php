@@ -51,7 +51,7 @@ class EmpresasController extends \BaseController {
 
 		Empresa::create($data);
         }
-		//return Redirect::route('empresas.index');
+		return Redirect::route('practicas.create');
 	}
 
 	/**

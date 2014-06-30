@@ -1,27 +1,20 @@
-<html>
+
+<!DOCTYPE html>
 <head>
-    <title>Estudiante</title>
+    <meta charset="UTF-8" />
+    <title>Practica estudiante</title>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <td>Nombre Estudiante</td>
-        <td>Carrera</td>
-        <td>Fecha Inicio</td>
-        <td>Horas de practica</td>
-    </tr>
-    </thead>
-    <tbody>
-
-    <tr>
-        <td>{{ $practica->estudiante->nombres }}</td>
-        <td>{{ $practica->estudiante->carrera->nombre }}</td>
-        <td>{{ $practica->fecha_inicio}}</td>
-        <td>{{ $practica->horas}}</td>
-    </tr>
-
-    </tbody>
-</table>
+<h1> Datos practica estudiante</h1>
+<article>
+    <section>
+        <div class="form">
+            {{ HTML::style('css/stylesheet.css') }}
+             Nombre estudiante: {{ $practica->estudiante->nombres }}<br><br>
+             Carrera: {{ $practica->estudiante->carrera->nombre }}<br><br>
+             Fecha Inicio: {{ $practica->fecha_inicio}}<br><br>
+             Horas práctica: {{ $practica->horas}}<br><br>
+            </div>
+        </section>
+    </article>
 </body>
-</html>

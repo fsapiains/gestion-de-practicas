@@ -8,7 +8,7 @@ class Practica extends \Eloquent {
 	public static $rules = [
         'fecha_inicio' => 'date_format:Y-n-d',
         'fecha_termino' => 'date_format:Y-n-d',
-        'rut'=> 'required|rut'
+       // 'rut'=> 'required|rut'
 	];
     public static $messages = [
         'required' => 'El campo :attribute es obligatorio.',

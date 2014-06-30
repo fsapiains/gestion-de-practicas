@@ -49,7 +49,13 @@ class UsuariosController extends \BaseController
                     $usuario->rut = substr(Input::get('rut'), 0, -1);
                     $usuario->password = Hash::make(Input::get('contrasena'));
                     $usuario->save();
-                    return View::make('home');
+                    $carreras = Carrera::all();
+                    $carreras_select = array();
+                    foreach ($carreras as $carrera) {
+                        $carreras_select[$carrera->pk] = $carrera->nombre;
+                    }
+                    return View::make('estudiantes.create')->with('carreras', $carreras_select);
+                   // return View::make('home');
                 }
                 else
                 {

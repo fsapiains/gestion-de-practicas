@@ -35,7 +35,22 @@ label{
     color: #4db849;
     margin-left: 50px;
 }
+table tbody tr td ul li
+{
+    text-align: left;
+    display: inline;
+    font-family: "tahoma";
+}
 
+table tbody
+{
+    color: #191970;
+}
+table thead
+{
+    font-weight: bold;
+    color: #191970;
+}
 body
 {
     margin: 0 auto;
@@ -46,6 +61,21 @@ nav
 {
     background-color: #1e368c;
 
+}
+nav table thead tr td
+{
+    color: #191970;
+}
+h1{
+    text-align: justify;
+    padding: 10px;
+    color: #191970;
+}
+div ul li
+{
+    text-align: left;
+    display: inline;
+    font-family: "tahoma";
 }
 nav ul li
 {

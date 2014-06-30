@@ -22,6 +22,9 @@
         <h1>Bienvenido!</h1>
 
         <div class="form">
+            <ul>
+                <li>{{ HTML::linkRoute('user.logout', 'Cerrar Sesión')}}</li>
+            </ul>
         </div>
     </section>
 </article>
