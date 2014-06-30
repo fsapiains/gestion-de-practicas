@@ -27,11 +27,11 @@ class Practica extends \Eloquent {
     }
     public function estudiante()
     {
-        return $this->belongsTo('estudiante','estudiante_fk');
+        return $this->belongsTo('Estudiante','estudiante_fk');
     }
     public function carrera()
     {
-        return $this->belongsTo('carrera', 'carrera_fk');
+        return $this->belongsTo('Carrera', 'carrera_fk');
     }
 
     public function area_tematica()
