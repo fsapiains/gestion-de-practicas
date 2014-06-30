@@ -2,30 +2,18 @@
 
 class Practica extends \Eloquent {
 
-    public function contactos(){
-        return $this->hasMany('Estudiante');
-    }
-
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here
 	public static $rules = [
-       // 'fecha' => 'date_format:y-m-d|required',
-       // 'fecha_inicio' => 'date_format:y-m-d',
-       // 'fecha_termino' => 'date_format:y-m-d',
-        'archivo' => 'mimes:pdf,doc,docx'
+        'fecha_inicio' => 'date_format:Y-n-d',
+        'fecha_termino' => 'date_format:Y-n-d',
+        'rut'=> 'required|rut'
 	];
-    public static $rules1 = [
-        // 'fecha' => 'date_format:y-m-d|required',
-        // 'fecha_inicio' => 'date_format:y-m-d',
-        // 'fecha_termino' => 'date_format:y-m-d',
-        'rut' => 'min:9'
-    ];
     public static $messages = [
         'required' => 'El campo :attribute es obligatorio.',
-        'date_format:y-m-d'=> 'El formato de :attribute no es válida',
-        'mimes:pdf,doc,docx'=>'El formato de archivo no es válido',
-        'min:9'=> 'Debe ingresar un rut válido'
+        'date_format'=> 'El formato de :attribute no es válida',
+
     ];
 
 	// Don't forget to fill this array
@@ -33,5 +21,21 @@ class Practica extends \Eloquent {
 
     public $timestamps = false;
 
+    public function contacto()
+    {
+        return $this->hasOne('ContactosEmpresariale', 'pk', 'contacto_fk');
+    }
+    public function estudiante()
+    {
+        return $this->belongsTo('estudiante','estudiante_fk');
+    }
+    public function carrera()
+    {
+        return $this->belongsTo('carrera', 'carrera_fk');
+    }
 
+    public function area_tematica()
+    {
+        return $this->belongsTo('AreasTematica', 'areas_tematica_fk');
+    }
 }

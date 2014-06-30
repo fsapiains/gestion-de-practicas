@@ -5,8 +5,6 @@
 <body>
 <h1>Ingreso de estudiantes</h1>
          {{ Form::open(array('route' => array('estudiantes.store'))) }}
-         {{ Form::label('rut', 'Rut (sin puntos ni guión): ') }}
-         {{ Form::text('rut') }} <br> <br>
          {{ Form::label('direccion', 'Dirección: ') }}
          {{ Form::text('direccion') }} <br> <br>
          {{ Form::label('telefono', 'Teléfono: ') }}

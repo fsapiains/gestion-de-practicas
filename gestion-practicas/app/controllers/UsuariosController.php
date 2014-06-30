@@ -2,41 +2,19 @@
 
 class UsuariosController extends \BaseController
 {
-    public function hacer_login()
+
+   public function hacer_login()
     {
-        $rut = Input::get('rut');
-        $contrasena = Input::get('contrasena');
+            $rut = Input::get('rut');
+            $contrasena = Input::get('contrasena');
 
-        // Agregar validacion de campos
+            // Agregar validacion de campos
 
-        $userdata = array('rut' => $rut, 'password' => $contrasena);
-
-        // Intentar autenticacion contra la db
-        $password = hash('sha256', strtoupper($contrasena));
-        $url = "https://146.83.181.139/saap-rest/api/autenticar/$rut/$password";
-
-        $opciones = array(
-            'http' => array(
-                'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
-            )
-        );
-
-        $contexto = stream_context_create($opciones);
-
-        $objeto = json_decode(file_get_contents($url, false, $contexto));
-
-        if (!empty($objeto)) {
-            error_log($objeto->mensaje . " rut $rut");
-            $login_ok_rest = $objeto->respuesta;
-        }
-
-        if($login_ok_rest) // Autentico bien por rest
-        {
-            return 'login ok via rest';
-        }
-        else // Autenticar via db
-        {
+            $userdata = array('rut' => $rut, 'password' => $contrasena);
             $userdata['rut'] = substr(Input::get('rut'),0,-1);
+
+            // Autentificar contra db
+
             if(Auth::attempt($userdata))
             {
                 Session::put('rut', $rut);
@@ -44,9 +22,40 @@ class UsuariosController extends \BaseController
             }
             else
             {
-                return 'autenticacion mala por db';
+                //Autentificar con rest
+
+                $password = hash('sha256', strtoupper($contrasena));
+                $url = "https://146.83.181.139/saap-rest/api/autenticar/$rut/$password";
+
+                $opciones = array(
+                    'http' => array(
+                        'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
+                    )
+                );
+
+                $contexto = stream_context_create($opciones);
+
+                $objeto = json_decode(file_get_contents($url, false, $contexto));
+
+                if (!empty($objeto)) {
+                    error_log($objeto->mensaje . " rut $rut");
+                    $login_ok_rest = $objeto->respuesta;
+                }
+
+                if($login_ok_rest) // Autentico bien por rest
+                {
+                    Session::put('rut', $rut);
+                    $usuario = new Usuario;
+                    $usuario->rut = substr(Input::get('rut'), 0, -1);
+                    $usuario->password = Hash::make(Input::get('contrasena'));
+                    $usuario->save();
+                    return 'login ok via rest';
+                }
+                else
+                {
+                 return 'autentificacion fallida';
+                 }
             }
-        }
     }
 
     public function logout()
@@ -55,7 +64,7 @@ class UsuariosController extends \BaseController
             Session::forget('rut');
         if(Auth::user())
             Auth::logout();
-        return Redirect::route('front');
+        return Redirect::route('home');
     }
 
 
@@ -89,64 +98,12 @@ class UsuariosController extends \BaseController
     public function loginUser()
     {
         if (Auth::check())
-            return View::make('hola'); # Usuario loggeado
+            return Redirect::route('home'); # Usuario loggeado
         else
             return View::make('usuarios.login');
     }
 
-    /*   public function login()
-       {
-           if(Session::has('rut')) # Si esta rut en la session
-               return Redirect::to('hola');
-           else # No esta logeado, le muestro el formulario de login
-               return View::make('usuarios.login');
-       }
-       public function hacer_login()
-       {
-           $data = Input::only('rut', 'password');
-           # Validar rut por ej ...
-           ## Hacer toda la pachamama de autenticacion con el webservice
-           $rut = Input::get('rut');
 
-           $contrasena = Input::get('password');
-
-           $password = hash('sha256', strtoupper($contrasena));
-           $url = "https://146.83.181.139/saap-rest/api/autenticar/$rut/$password";
-
-           $opciones = array(
-               'http' => array(
-                   'header' => "Authorization: Basic " . base64_encode("11.111.111-1:745948b275f6212ee233f52679d4ba1ea87b0dac")
-               )
-           );
-           $contexto = stream_context_create($opciones);
-
-           $objeto = json_decode(file_get_contents($url, false, $contexto));
-
-           //if (!empty($objeto)) {
-           error_log($objeto->mensaje . " rut $rut");
-
-           echo $objeto->mensaje;
-           #usuario autentificado
-
-           $auth = $objeto->mensaje;
-
-           if($auth && $rut){
-               unset($data['password']);
-           $user = Usuario::firstOrCreate($data);
-
-           $usuario= new Usuario;
-           $usuario->rut=substr(Input::get('rut'),0,-1);
-           $usuario->contrasena=Input::get('password');
-           $usuario->save();
-
-           Session::put('rut', $user->rut); # Agregar que el loco esta loggeado
-           return Redirect::to('hola');// Login ok, lo envio a algun lado util
-           }
-           else{
-           return Redirect::to('usuarios/login'); # Login no OK, lo envio al login de nuevo
-               }
-
-   }*/
 
     public function store()
     {

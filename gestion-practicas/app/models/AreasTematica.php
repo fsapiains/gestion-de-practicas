@@ -1,11 +1,6 @@
 <?php
 
 class AreasTematica extends \Eloquent {
-
-    public function empresas(){
-        return $this->hasMany('Practica');
-    }
-
     protected $primaryKey = 'pk';
 
 	// Add your validation rules here
@@ -18,4 +13,8 @@ class AreasTematica extends \Eloquent {
 
     public $timestamps = false;
 
+    public function practicas()
+    {
+        return $this->hasMany('Practica', 'areas_tematica_fk');
+    }
 }

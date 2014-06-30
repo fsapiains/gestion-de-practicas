@@ -78,3 +78,26 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('admin', function()
+{
+    $calzar = true; // Si se mantiene en true, el usuario no es un admin
+    if(Session::has('rut'))
+    {
+        $user = Usuario::where('rut', '=', Session::get('rut'))->first();
+        if($user)
+            if($user->roles_usuario)
+                foreach($roles_usuario as $rol_usuario)
+                {
+                    if($rol_usuario->rol)
+                        if($rol->rol == 'Admin')
+                        {
+                            $calzar = false;
+                            break;
+                        }
+                }
+    }
+    if($calzar)
+        return Redirect::route('user.login_form');
+});

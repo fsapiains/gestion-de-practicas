@@ -11,7 +11,7 @@ class Carrera extends \Eloquent {
     }
 
     public function practicas(){
-        return $this->hasMany('Practica');
+        return $this->hasMany('Practica', 'carrera_fk');
     }
 
     protected $primaryKey = 'pk';

@@ -5,7 +5,7 @@
 <body>
 <ul>
     @foreach($empresas as $empresa)
-    <li>{{ $empresa->nombre_real }} , {{ $empresa->direccion}} , {{ $empresa->telefono}}</li>
+    <li>{{ $empresa->nombre_fantasia }}</li>
     @endforeach
 </ul>
 </body>

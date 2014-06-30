@@ -45,7 +45,7 @@ class EmpresasController extends \BaseController {
 
 		if ($validator->fails())
 		{
-            return Redirect::to('carreras/create')->withErrors($validator);
+            return Redirect::to('empresas/create')->withErrors($validator);
 		}
         else{
 

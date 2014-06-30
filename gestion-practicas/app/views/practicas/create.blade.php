@@ -12,8 +12,6 @@
       {{ Form::select('contacto_fk',$contactos_select) }} <br> <br>
       {{ Form::label('areas_tematica_fk', 'Area temática: ') }}
       {{ Form::select('areas_tematica_fk',$areastematicas_select) }} <br> <br>
-      {{ Form::label('fecha', 'Fecha(aaaa-mm-dd): ') }}
-      {{ Form::text('fecha') }} <br> <br>
       {{ Form::label('fecha_inicio', 'Fecha Inicio(aaaa-mm-dd): ') }}
       {{ Form::text('fecha_inicio') }} <br> <br>
       {{ Form::label('fecha_termino', 'Fecha Término(aaaa-mm-dd): ') }}

@@ -12,11 +12,14 @@ class Empresa extends \Eloquent {
 
     protected $primaryKey = 'pk';
 
-	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+        'email' => 'required|email',
+		'rut'=> 'required|rut'
 	];
-
+    public static $messages = [
+        'required' => 'El campo :attribute es obligatorio.',
+        'email' => 'El campo :attribute debe ser un email válido.',
+    ];
 	// Don't forget to fill this array
 	protected $fillable = ['rut', 'nombre_real','nombre_fantasia','direccion','rubro_fk','telefono','email'];
 
