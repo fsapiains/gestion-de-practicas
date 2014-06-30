@@ -172,11 +172,9 @@ class EstudiantesController extends \BaseController
         $by_last_name = Estudiante::where('apellidos', 'LIKE', '%' . $keyword . '%')->get();
         $estudiantes = $by_name->merge($by_last_name);
 
-        // TODO: Retornar una vista pasandole el parametro estudiantes
+        return View::make('estudiantes.show')->with('estudiantes', $estudiantes);
 
-        foreach ($estudiantes as $estudiante) {
-            var_dump($estudiante->nombres);
-        }
+
     }
 
 
