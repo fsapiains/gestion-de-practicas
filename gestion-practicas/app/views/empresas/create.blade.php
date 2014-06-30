@@ -5,7 +5,7 @@
 <body>
 <h1>Ingreso de empresas</h1>
 {{ Form::open(array('route' => array('empresas.store'))) }}
-    {{ Form::label('rut', 'Rut: ') }}
+    {{ Form::label('rut', 'Rut(Sin puntos ni guión): ') }}
     {{ Form::text('rut') }} <br> <br>
     {{ Form::label('nombre_real', 'Nombre real: ') }}
     {{ Form::text('nombre_real') }} <br> <br>

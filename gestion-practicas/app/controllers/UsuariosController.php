@@ -64,7 +64,7 @@ class UsuariosController extends \BaseController
             Session::forget('rut');
         if(Auth::user())
             Auth::logout();
-        return Redirect::route('home');
+        return 'ud ha salido de la sesión!';
     }
 
 
