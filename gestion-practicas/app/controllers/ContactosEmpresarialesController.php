@@ -22,7 +22,7 @@ class ContactosEmpresarialesController extends \BaseController {
 	public function create()
 	{
 
-        $empresas = empresa::all();
+        $empresas = Empresa::all();
         $empresas_select = array();
         foreach($empresas as $empresa) {
             $empresas_select[$empresa->pk] = $empresa->nombre_real;
