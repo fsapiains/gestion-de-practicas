@@ -132,17 +132,7 @@ class UsuariosController extends \BaseController
         $usuario->rut = substr(Input::get('rut'), 0, -1);
         $usuario->contrasena = Input::get('password');
         $usuario->save();
-        /*
-		$validator = Validator::make($data = Input::all(), Usuario::$rules);
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Usuario::create($data);
-
-		return Redirect::route('usuarios.index');*/
     }
 
     /**

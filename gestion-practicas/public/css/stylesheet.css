@@ -54,6 +54,16 @@ nav ul li
     cursor: pointer;
     color: #ffffff;
 }
+nav ul li a
+{
+    color: #dcf7ff;
+    text-decoration: none;
+    padding: 10px 40px;
+    transition: all 0.5s linear;
+    -moz- transition: all 0.5 linear;
+    -o- transition: all 0.5 linear;
+    -webkit- transition: all 0.5 linear;
+}
 nav ul li a:hover
 {
     box-shadow: #ffffff 0px 0px 5px;

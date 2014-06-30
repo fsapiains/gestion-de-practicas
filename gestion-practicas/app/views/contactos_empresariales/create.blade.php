@@ -4,22 +4,7 @@
     <title>Contacto empresa</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="practicas/create">Datos personales </a>
-            </li>
-            <li>
-                <a>Práctica</a>
 
-            </li>
-            <li>
-                <a>Datos empresariales</a>
-            </li>
-        </ul>
-    </nav>
-</header>
 <article>
     <section>
         <h1>Ingreso de contacto</h1>

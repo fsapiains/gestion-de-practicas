@@ -52,7 +52,7 @@ class ContactosEmpresarialesController extends \BaseController {
         return Redirect::to('contactos_empresariales/create')->withErrors($validator);//->with_input();
         }
        else{
-      /*  $contactosempresariales= new ContactosEmpresariale();
+          $contactosempresariales= new ContactosEmpresariale();
           $contactosempresariales->empresa_fk=Input::get('empresa_fk');
           $contactosempresariales->rut=substr(Input::get('rut'),0,-2);
           $contactosempresariales->nombres=Input::get('nombres');
