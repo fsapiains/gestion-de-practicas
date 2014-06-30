@@ -18,7 +18,7 @@ class UsuariosController extends \BaseController
             if(Auth::attempt($userdata))
             {
                 Session::put('rut', $rut);
-                return 'autenticacion ok con db';
+                return View::make('home');
             }
             else
             {
@@ -49,11 +49,11 @@ class UsuariosController extends \BaseController
                     $usuario->rut = substr(Input::get('rut'), 0, -1);
                     $usuario->password = Hash::make(Input::get('contrasena'));
                     $usuario->save();
-                    return 'login ok via rest';
+                    return View::make('home');
                 }
                 else
                 {
-                 return 'autentificacion fallida';
+                 return Redirect::to('/login')->with('Autenticacion fallida');
                  }
             }
     }
