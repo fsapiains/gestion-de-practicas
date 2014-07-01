@@ -133,8 +133,7 @@ class PracticasController extends \BaseController
              else{ echo"error: el archivo no se cargó correctamente ";
              }*/
            $practica->save();
-            echo 'Práctica registrada correctamente';
-            return Redirect::route('home');
+            return Redirect::route('home')->with('Práctica registrada correctamente!');
         }
 
     }

@@ -33,7 +33,7 @@
 <br><br>
    <div>
         <ul>
-       {{ HTML::linkRoute('contactos_empresariales.create', 'Crear nueva practica') }}<br><br>
+       {{ HTML::linkRoute('empresas.create', 'Crear nueva practica') }}<br><br>
         </ul>
     </div>
 </body>

@@ -54,7 +54,7 @@ class ContactosEmpresarialesController extends \BaseController {
        else{
           $contactosempresariales= new ContactosEmpresariale();
           $contactosempresariales->empresa_fk=Input::get('empresa_fk');
-          $contactosempresariales->rut=substr(Input::get('rut'),0,-2);
+          $contactosempresariales->rut=substr(Input::get('rut'),0,-1);
           $contactosempresariales->nombres=Input::get('nombres');
           $contactosempresariales->apellidos=Input::get('apellidos');
           $contactosempresariales->telefono=Input::get('telefono');
@@ -62,7 +62,7 @@ class ContactosEmpresarialesController extends \BaseController {
           $contactosempresariales->save();
        // return Redirect::to('register');//->with('mensaje','¡Usuario registrado correctamente!.');*/
           echo "contacto registrado correctamente!";
-         return Redirect::to('empresas/create');
+         return Redirect::to('practicas/create');
         }
 
        }

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="40afd2a5-f1c0-491a-8239-582f619bd340" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gestion-practicas/app/controllers/ContactosEmpresarialesController.php" afterPath="$PROJECT_DIR$/gestion-practicas/app/controllers/ContactosEmpresarialesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php" afterPath="$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php" afterPath="$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php" afterPath="$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gestion-de-practicas.iws" />
@@ -47,6 +50,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="UsuariosController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/UsuariosController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="85" selection-start="2726" selection-end="2726" vertical-scroll-proportion="-25.625" vertical-offset="420" max-vertical-offset="3285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="45" selection-start="560" selection-end="560" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ContactosEmpresariale.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gestion-practicas/app/models/ContactosEmpresariale.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,10 +86,37 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="35" selection-start="1193" selection-end="1193" vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="675">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="EmpresasController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="23" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.74509805" vertical-offset="315" max-vertical-offset="1860">
+            <state line="49" column="13" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.52560645" vertical-offset="345" max-vertical-offset="1845">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactosEmpresarialesController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/ContactosEmpresarialesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="68" selection-start="1565" selection-end="1565" vertical-scroll-proportion="-19.041666" vertical-offset="383" max-vertical-offset="2085">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PracticasController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="135" column="53" selection-start="4992" selection-end="4992" vertical-scroll-proportion="-38.75" vertical-offset="1095" max-vertical-offset="3840">
               <folding />
             </state>
           </provider>
@@ -121,7 +169,6 @@
         <option value="$PROJECT_DIR$/gestion-practicas/app/models/Role.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/filters.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/EstudiantesController.php" />
-        <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/models/Practica.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/empresas/create.blade.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/contactos_empresariales/create.blade.php" />
@@ -131,13 +178,14 @@
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/estudiantes/show.blade.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/estudiantes/index.blade.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php" />
-        <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/public/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/views/usuarios/login.blade.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/models/Usuario.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/UsuariosController.php" />
+        <option value="$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php" />
+        <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php" />
         <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/ContactosEmpresarialesController.php" />
+        <option value="$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php" />
       </list>
     </option>
   </component>
@@ -333,7 +381,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="empresas" />
+              <option name="myItemId" value="practicas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gestion-de-practicas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gestion-de-practicas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gestion-practicas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contactos_empresariales" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -661,20 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="17" selection-start="406" selection-end="406" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="45" selection-start="560" selection-end="560" vertical-scroll-proportion="0.49668875" vertical-offset="0" max-vertical-offset="755">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/practicas/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="582" selection-end="582" vertical-scroll-proportion="0.397351" vertical-offset="0" max-vertical-offset="755">
@@ -738,13 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/UsuariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="85" selection-start="2726" selection-end="2726" vertical-scroll-proportion="0.6748072" vertical-offset="510" max-vertical-offset="3285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/usuarios/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="0.09640103" vertical-offset="0" max-vertical-offset="778">
@@ -755,13 +808,6 @@
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/EstudiantesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="8" selection-start="874" selection-end="916" vertical-scroll-proportion="0.078431375" vertical-offset="585" max-vertical-offset="2850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="29" selection-start="4938" selection-end="4938" vertical-scroll-proportion="0.88688946" vertical-offset="1320" max-vertical-offset="3855">
           <folding />
         </state>
       </provider>
@@ -843,6 +889,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/UsuariosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="85" selection-start="2726" selection-end="2726" vertical-scroll-proportion="-25.625" vertical-offset="420" max-vertical-offset="3285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="45" selection-start="560" selection-end="560" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/empresas/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="39" selection-start="1339" selection-end="1339" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="675">
@@ -850,16 +910,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/views/practicas/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="35" selection-start="1193" selection-end="1193" vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/PracticasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="53" selection-start="4992" selection-end="4992" vertical-scroll-proportion="-38.75" vertical-offset="1095" max-vertical-offset="3840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/ContactosEmpresarialesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="458" selection-end="458" vertical-scroll-proportion="0.18251929" vertical-offset="188" max-vertical-offset="2085">
+        <state line="56" column="68" selection-start="1565" selection-end="1565" vertical-scroll-proportion="-19.041666" vertical-offset="383" max-vertical-offset="2085">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gestion-practicas/app/controllers/EmpresasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="23" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.74509805" vertical-offset="315" max-vertical-offset="1860">
+        <state line="49" column="13" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.52560645" vertical-offset="345" max-vertical-offset="1845">
           <folding />
         </state>
       </provider>

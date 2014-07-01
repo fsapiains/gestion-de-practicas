@@ -48,10 +48,9 @@ class EmpresasController extends \BaseController {
             return Redirect::to('empresas/create')->withErrors($validator);
 		}
         else{
-
 		Empresa::create($data);
         }
-		return Redirect::route('practicas.create');
+		return Redirect::route('contactos_empresariales.create');
 	}
 
 	/**
